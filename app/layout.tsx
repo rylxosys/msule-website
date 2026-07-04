@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { JsonLd } from "@/components/common/JsonLd";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -44,7 +47,25 @@ export default function RootLayout({
         inter.variable,
       )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Msule",
+            url: "https://msule.com",
+            description:
+              "Msule is a product engineering company helping businesses design, build, modernize, and scale software products.",
+            sameAs: [
+              "https://linkedin.com/company/msule",
+              "https://twitter.com/msule",
+            ],
+          }}
+        />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
