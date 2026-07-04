@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, Cloud, Sparkles, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/common/reveal";
+import { Reveal } from "@/components/common/Reveal";
 
 const FLOATING_CARDS = [
   {
