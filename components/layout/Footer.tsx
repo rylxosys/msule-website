@@ -6,6 +6,7 @@ import {
   GithubIcon,
 } from "@/components/common/SocialIcons";
 import { Mail } from "lucide-react";
+import { MsuleLogo } from "../common/MsuleLogo";
 
 const FOOTER_LINKS = {
   Company: [
@@ -48,7 +49,7 @@ export function Footer() {
               href="/"
               className="font-display text-xl font-bold tracking-tight text-ink"
             >
-              Msule
+              <MsuleLogo size="lg" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               Your long-term technology partner — engineering software that

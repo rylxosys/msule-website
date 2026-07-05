@@ -13,6 +13,8 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { Ms } from "zod/v4/locales";
+import { MsuleLogo } from "../common/MsuleLogo";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -55,7 +57,7 @@ export function Navbar() {
           href="/"
           className="font-display text-xl font-bold tracking-tight text-ink"
         >
-          Msule
+          <MsuleLogo />
         </Link>
 
         {/* Desktop nav */}

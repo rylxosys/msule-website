@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   title: "Msule — Product Engineering Company",
   description:
     "Msule helps businesses design, build, modernize, and scale software products. Your long-term technology partner.",
-  metadataBase: new URL("https://msule.com"), // swap for real domain
+  metadataBase: new URL("https://msule.com"),
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Msule — Product Engineering Company",
     description: "Engineering software that moves business.",
