@@ -19,31 +19,22 @@ const FLOATING_CARDS = [
   {
     icon: Code2,
     label: "Product Engineering",
-    top: "8%",
-    left: "48%",
+    angle: -60,
     floatDelay: 0,
   },
   {
     icon: Building2,
     label: "Enterprise Software",
-    top: "34%",
-    left: "88%",
+    angle: 0,
     floatDelay: 0.5,
-  },
-  {
-    icon: Cloud,
-    label: "Cloud Native",
-    top: "62%",
-    left: "50%",
-    floatDelay: 1,
   },
   {
     icon: ShieldCheck,
     label: "24/7 Support",
-    top: "84%",
-    left: "86%",
-    floatDelay: 1.5,
+    angle: 150,
+    floatDelay: 1,
   },
+  { icon: Cloud, label: "Cloud Native", angle: 60, floatDelay: 1.5 },
 ];
 
 export function Hero() {
@@ -144,27 +135,7 @@ export function Hero() {
 
           {/* Cards positioned via trig at fixed angles around the circle's edge.
               Circle center = (220, 220), radius = 170 (edge of the 340px circle). */}
-          {[
-            {
-              icon: Code2,
-              label: "Product Engineering",
-              angle: -60,
-              floatDelay: 0,
-            },
-            {
-              icon: Sparkles,
-              label: "AI Solutions",
-              angle: 0,
-              floatDelay: 0.5,
-            },
-            {
-              icon: ShieldCheck,
-              label: "24/7 Support",
-              angle: 60,
-              floatDelay: 1,
-            },
-            { icon: Cloud, label: "Cloud Native", angle: 150, floatDelay: 1.5 },
-          ].map(({ icon: Icon, label, angle, floatDelay }) => {
+          {FLOATING_CARDS.map(({ icon: Icon, label, angle, floatDelay }) => {
             const radius = 170;
             const rad = (angle * Math.PI) / 180;
             const x = 220 + radius * Math.cos(rad);
