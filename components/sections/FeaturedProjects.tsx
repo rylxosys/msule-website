@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal, RevealStagger } from "../common/Reveal";
 
 const PROJECTS = [
   {
@@ -41,14 +42,17 @@ export function FeaturedProjects() {
     <section className="bg-accent-soft/40 py-24">
       <div className="mx-auto max-w-[1280px] px-6">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-accent">
-              Our Work
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-              Products we&apos;ve engineered
-            </h2>
-          </div>
+          <Reveal variant="slideRight">
+            <div className="max-w-2xl">
+              <p className="font-mono text-xs uppercase tracking-widest text-accent">
+                Our Work
+              </p>
+              <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+                Products we&apos;ve engineered
+              </h2>
+            </div>
+          </Reveal>
+
           <Link
             href="/projects"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-accent"
@@ -58,7 +62,10 @@ export function FeaturedProjects() {
           </Link>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <RevealStagger
+          className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3"
+          staggerDelay={0.15}
+        >
           {PROJECTS.map((project) => (
             <Link
               key={project.title}
@@ -112,7 +119,7 @@ export function FeaturedProjects() {
               </div>
             </Link>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

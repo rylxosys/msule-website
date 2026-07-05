@@ -9,6 +9,7 @@ import {
   GraduationCap,
   Landmark,
 } from "lucide-react";
+import { Reveal, RevealStagger } from "../common/Reveal";
 
 const INDUSTRIES = [
   { icon: HeartPulse, title: "Healthcare", href: "/industries/healthcare" },
@@ -24,20 +25,22 @@ export function Industries() {
   return (
     <section className="bg-bg py-24">
       <div className="mx-auto max-w-[1280px] px-6">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            Who We Work With
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Industries we understand deeply
-          </h2>
-          <p className="mt-4 text-lg text-muted">
-            Domain expertise that goes beyond writing code — we understand the
-            operational realities of the industries we build for.
-          </p>
-        </div>
+        <Reveal variant="fadeDown">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              Who We Work With
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Industries we understand deeply
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              Domain expertise that goes beyond writing code — we understand the
+              operational realities of the industries we build for.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <RevealStagger className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {INDUSTRIES.map(({ icon: Icon, title, href }) => (
             <Link
               key={title}
@@ -52,7 +55,7 @@ export function Industries() {
               </h3>
             </Link>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

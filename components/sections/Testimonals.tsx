@@ -1,6 +1,7 @@
 // components/sections/testimonials.tsx
 import Image from "next/image";
 import { Quote } from "lucide-react";
+import { Reveal, RevealStagger } from "../common/Reveal";
 
 const TESTIMONIALS = [
   {
@@ -30,16 +31,18 @@ export function Testimonials() {
   return (
     <section className="bg-accent-soft/40 py-24">
       <div className="mx-auto max-w-[1280px] px-6">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            What Clients Say
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Trusted by teams who build seriously
-          </h2>
-        </div>
+        <Reveal variant="zoomIn">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              What Clients Say
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Trusted by teams who build seriously
+            </h2>
+          </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <RevealStagger className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
@@ -66,7 +69,7 @@ export function Testimonials() {
               </div>
             </div>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

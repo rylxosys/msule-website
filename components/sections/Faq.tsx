@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Reveal } from "../common/Reveal";
 
 const FAQS = [
   {
@@ -45,29 +46,31 @@ const FAQS = [
 export function FAQ() {
   return (
     <section className="bg-bg py-24">
-      <div className="mx-auto max-w-[900px] px-6">
-        <div className="text-center">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            Questions
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Frequently asked questions
-          </h2>
-        </div>
+      <Reveal variant="fadeUp">
+        <div className="mx-auto max-w-[900px] px-6">
+          <div className="text-center">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              Questions
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Frequently asked questions
+            </h2>
+          </div>
 
-        <Accordion type="single" collapsible className="mt-14">
-          {FAQS.map((faq, i) => (
-            <AccordionItem key={faq.question} value={`item-${i}`}>
-              <AccordionTrigger className="font-display text-left text-base font-semibold text-ink hover:text-accent">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-sm leading-relaxed text-muted">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+          <Accordion type="single" collapsible className="mt-14">
+            {FAQS.map((faq, i) => (
+              <AccordionItem key={faq.question} value={`item-${i}`}>
+                <AccordionTrigger className="font-display text-left text-base font-semibold text-ink hover:text-accent">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </Reveal>
     </section>
   );
 }

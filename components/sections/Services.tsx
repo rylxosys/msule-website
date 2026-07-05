@@ -11,6 +11,7 @@ import {
   LifeBuoy,
   ArrowUpRight,
 } from "lucide-react";
+import { Reveal, RevealStagger } from "../common/Reveal";
 
 const SERVICES = [
   {
@@ -67,20 +68,22 @@ export function Services() {
   return (
     <section className="bg-bg py-24">
       <div className="mx-auto max-w-[1280px] px-6">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            What We Do
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Services built around your product
-          </h2>
-          <p className="mt-4 text-lg text-muted">
-            From first prototype to enterprise scale, we cover the full
-            lifecycle of software product development.
-          </p>
-        </div>
+        <Reveal variant="fadeUp">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              What We Do
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Services built around your product
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              From first prototype to enterprise scale, we cover the full
+              lifecycle of software product development.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealStagger className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map(({ icon: Icon, title, description, href }) => (
             <Link
               key={title}
@@ -101,7 +104,7 @@ export function Services() {
               <ArrowUpRight className="absolute right-6 top-6 size-4 text-muted-soft opacity-0 transition-opacity group-hover:opacity-100" />
             </Link>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

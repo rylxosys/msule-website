@@ -7,6 +7,7 @@ import {
   LifeBuoy,
   ShieldCheck,
 } from "lucide-react";
+import { Reveal, RevealStagger } from "../common/Reveal";
 
 const STRENGTHS = [
   {
@@ -51,16 +52,18 @@ export function WhyMsule() {
   return (
     <section className="bg-ink py-24">
       <div className="mx-auto max-w-[1280px] px-6">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            Why Msule
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
-            A partner, not a vendor
-          </h2>
-        </div>
+        <Reveal variant="slideRight">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              Why Msule
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+              A partner, not a vendor
+            </h2>
+          </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
+        <RevealStagger className="mt-14 grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
           {STRENGTHS.map(({ icon: Icon, title, description }, i) => (
             <div
               key={title}
@@ -82,7 +85,7 @@ export function WhyMsule() {
               </div>
             </div>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

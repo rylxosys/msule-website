@@ -22,6 +22,7 @@ import {
   FieldError,
   FieldDescription,
 } from "@/components/ui/field";
+import { Reveal } from "@/components/common/Reveal";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -80,27 +81,195 @@ export default function ContactPage() {
   return (
     <main className="bg-bg">
       <section className="mx-auto max-w-[1280px] px-6 py-20 md:py-28">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            Contact
-          </p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            Let&apos;s build something great together
-          </h1>
-          <p className="mt-4 text-lg text-muted">
-            Tell us about your project, and we&apos;ll get back to you within
-            one business day.
-          </p>
-        </div>
+        <Reveal variant="fadeUp">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              Contact
+            </p>
+            <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              Let&apos;s build something great together
+            </h1>
+            <p className="mt-4 text-lg text-muted">
+              Tell us about your project, and we&apos;ll get back to you within
+              one business day.
+            </p>
+          </div>
+        </Reveal>
 
-        {/* Form + contact info — sidebar now ONLY has info card + map, no calendar */}
+        {/* Form + contact info */}
         <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-3">{/* ...form JSX, unchanged */}</div>
+          {/* Form */}
+          <Reveal variant="slideRight" className="lg:col-span-3">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <Controller
+                  name="name"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor={field.name}>Full name</FieldLabel>
+                      <Input
+                        {...field}
+                        id={field.name}
+                        placeholder="Jane Doe"
+                        aria-invalid={fieldState.invalid}
+                      />
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
 
-          <div className="lg:col-span-2">
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor={field.name}>Work email</FieldLabel>
+                      <Input
+                        {...field}
+                        id={field.name}
+                        type="email"
+                        placeholder="jane@company.com"
+                        aria-invalid={fieldState.invalid}
+                      />
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <Controller
+                  name="company"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor={field.name}>
+                        Company (optional)
+                      </FieldLabel>
+                      <Input
+                        {...field}
+                        id={field.name}
+                        placeholder="Company name"
+                      />
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
+
+                <Controller
+                  name="budget"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor={field.name}>
+                        Estimated budget (optional)
+                      </FieldLabel>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger id={field.name}>
+                          <SelectValue placeholder="Select a range" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="under-10k">Under $10k</SelectItem>
+                          <SelectItem value="10k-50k">$10k – $50k</SelectItem>
+                          <SelectItem value="50k-150k">$50k – $150k</SelectItem>
+                          <SelectItem value="150k-plus">$150k+</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
+              </div>
+
+              <Controller
+                name="message"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel htmlFor={field.name}>
+                      Tell us about your project
+                    </FieldLabel>
+                    <Textarea
+                      {...field}
+                      id={field.name}
+                      placeholder="What are you looking to build?"
+                      className="min-h-[140px]"
+                      aria-invalid={fieldState.invalid}
+                    />
+                    <FieldDescription>
+                      The more detail you share, the faster we can respond.
+                    </FieldDescription>
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+
+              <Button
+                type="submit"
+                size="lg"
+                disabled={isSubmitting}
+                className="gap-2 rounded-full bg-accent px-8 text-accent-fg hover:bg-accent/90"
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+                <ArrowRight className="size-4" />
+              </Button>
+            </form>
+          </Reveal>
+
+          {/* Contact info + map */}
+          <Reveal variant="slideLeft" delay={0.15} className="lg:col-span-2">
             <div className="space-y-6 rounded-2xl border border-border bg-white p-8">
-              {/* ...email, phone, office rows — unchanged */}
-              {/* Remove the "Schedule a Meeting" button from here — it moves to its own section below */}
+              <div className="flex items-start gap-4">
+                <Mail className="mt-0.5 size-5 text-accent" />
+                <div>
+                  <p className="text-sm font-semibold text-ink">Email</p>
+                  <a
+                    href="mailto:hello@msule.com"
+                    className="text-sm text-muted hover:text-accent"
+                  >
+                    hello@msule.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <Phone className="mt-0.5 size-5 text-accent" />
+                <div>
+                  <p className="text-sm font-semibold text-ink">Phone</p>
+                  <a
+                    href="tel:+10000000000"
+                    className="text-sm text-muted hover:text-accent"
+                  >
+                    +1 (000) 000-0000
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <MapPin className="mt-0.5 size-5 text-accent" />
+                <div>
+                  <p className="text-sm font-semibold text-ink">Office</p>
+                  <p className="text-sm text-muted">
+                    123 Business Ave, Suite 100
+                    <br />
+                    City, State 00000
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="mt-6 overflow-hidden rounded-2xl border border-border">
@@ -112,13 +281,16 @@ export default function ContactPage() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Scheduling — own full-width section, given proper room */}
       <section className="border-t border-border bg-white py-20">
-        <div className="mx-auto max-w-[700px] px-6 text-center">
+        <Reveal
+          variant="zoomIn"
+          className="mx-auto max-w-[700px] px-6 text-center"
+        >
           <p className="font-mono text-xs uppercase tracking-widest text-accent">
             Prefer to talk live?
           </p>
@@ -137,7 +309,7 @@ export default function ContactPage() {
               title="Schedule a meeting with Msule"
             />
           </div>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

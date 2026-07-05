@@ -8,6 +8,7 @@ import {
   Rocket,
   LifeBuoy,
 } from "lucide-react";
+import { Reveal, RevealStagger } from "../common/Reveal";
 
 const STEPS = [
   {
@@ -51,20 +52,22 @@ export function Process() {
   return (
     <section className="bg-bg py-24">
       <div className="mx-auto max-w-[1280px] px-6">
-        <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            How We Work
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
-            A process built for clarity
-          </h2>
-        </div>
+        <Reveal variant="fadeUp">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              How We Work
+            </p>
+            <h2 className="mt-3 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+              A process built for clarity
+            </h2>
+          </div>
+        </Reveal>
 
         {/* Desktop: horizontal timeline */}
         <div className="mt-16 hidden lg:block">
           <div className="relative">
             <div className="absolute left-0 right-0 top-6 h-px bg-border" />
-            <div className="relative grid grid-cols-7 gap-4">
+            <RevealStagger className="relative grid grid-cols-7 gap-4">
               {STEPS.map(({ icon: Icon, title, description }) => (
                 <div
                   key={title}
@@ -81,7 +84,7 @@ export function Process() {
                   </p>
                 </div>
               ))}
-            </div>
+            </RevealStagger>
           </div>
         </div>
 
