@@ -5,16 +5,25 @@ import { Button } from "@/components/ui/button";
 import { Reveal, RevealStagger } from "@/components/common/Reveal";
 import { ScrollHint } from "@/components/common/ScrollHint";
 import { AbstractTile } from "@/components/common/AbstractTile";
-import { PROJECTS } from "@/content/projects";
+import { PROJECTS, type Project } from "@/content/projects";
 
 export const metadata = { title: "Projects — Msule" };
 
 // Maps each project slug to a distinct abstract pattern, so cards
-// don't all look identical — same mapping used on the homepage.
+// don't all look identical.
 const PATTERN_MAP: Record<string, "nodes" | "blocks" | "waves"> = {
-  healthtrack: "nodes",
-  buildflow: "blocks",
-  factorylens: "waves",
+  "rylxo-cms": "nodes",
+  "agro-sathi": "waves",
+  "swis-foundation": "blocks",
+  "ab-associates": "blocks",
+  "gyan-porichoy": "nodes",
+};
+
+const STATUS_STYLES: Record<Project["status"], string> = {
+  Live: "bg-accent2-soft text-accent2",
+  "In Development": "bg-accent-soft text-accent",
+  Completed: "bg-accent2-soft text-accent2",
+  Maintenance: "bg-border text-muted",
 };
 
 export default function ProjectsIndexPage() {
@@ -55,9 +64,16 @@ export default function ProjectsIndexPage() {
                   className="aspect-[4/3] w-full transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="flex flex-1 flex-col p-6">
-                  <span className="font-mono text-xs uppercase tracking-wide text-accent">
-                    {project.industry}
-                  </span>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-mono text-xs uppercase tracking-wide text-accent">
+                      {project.industry}
+                    </span>
+                    <span
+                      className={`rounded-full px-2.5 py-1 font-mono text-[11px] ${STATUS_STYLES[project.status]}`}
+                    >
+                      {project.status}
+                    </span>
+                  </div>
                   <h3 className="mt-2 font-display text-lg font-semibold text-ink">
                     {project.title}
                   </h3>

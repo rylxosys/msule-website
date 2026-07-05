@@ -1,4 +1,3 @@
-// content/industries.ts
 import {
   HeartPulse,
   Factory,
@@ -7,6 +6,7 @@ import {
   Wheat,
   GraduationCap,
   Landmark,
+  HandHeart,
 } from "lucide-react";
 
 export type Industry = {
@@ -35,65 +35,125 @@ export const INDUSTRIES: Industry[] = [
     howWeHelp:
       "We design systems around clinical and administrative workflows first, building in compliance and security from day one rather than retrofitting it later.",
     solutions: [
-      "Patient record and scheduling platforms",
-      "Telehealth and remote monitoring integrations",
-      "Billing and insurance claim automation",
+      "Clinic and patient management platforms",
+      "Online appointment booking and scheduling",
+      "Real-time queue management and patient communication",
     ],
-    relatedProjectSlugs: ["healthtrack"],
+    relatedProjectSlugs: ["rylxo-cms"],
   },
   {
-    slug: "manufacturing",
-    title: "Manufacturing",
-    icon: Factory,
+    slug: "non-profit",
+    title: "Non-Profit",
+    icon: HandHeart,
     intro:
-      "We help manufacturers gain real-time visibility into operations that used to rely on manual logs and after-the-fact reporting.",
+      "We build fundraising and outreach platforms that help non-profits run campaigns and connect with donors directly.",
     challenges: [
-      "Limited visibility into line performance and downtime causes",
-      "Legacy systems that don't integrate with modern IoT sensors",
-      "Reactive rather than predictive maintenance",
+      "Reliance on third-party platforms that limit branding and take a cut of donations",
+      "Difficulty running and tracking multiple campaigns independently",
+      "Limited tools for keeping donors informed and engaged",
     ],
     howWeHelp:
-      "We connect existing equipment and sensors into live analytics platforms, surfacing issues before they cause costly downtime.",
+      "We build dedicated platforms giving non-profits full control over campaigns, donations, and donor communication, without depending on third-party fundraising tools.",
     solutions: [
-      "Real-time production monitoring dashboards",
-      "Predictive maintenance analytics",
-      "IoT sensor integration and data pipelines",
+      "Campaign creation and management dashboards",
+      "Direct online donation processing",
+      "Automated donor communication",
     ],
-    relatedProjectSlugs: ["factorylens"],
+    relatedProjectSlugs: ["swis-foundation"],
   },
   {
     slug: "construction",
     title: "Construction",
     icon: HardHat,
     intro:
-      "We build tools for construction firms managing multiple active sites, where visibility and coordination directly affect the bottom line.",
+      "We build websites and tools that help contractors and construction businesses showcase their work and win new clients.",
     challenges: [
-      "Slow, manual site reporting across multiple locations",
-      "Poor resource allocation visibility for management",
-      "Field teams needing tools that work in low-connectivity environments",
+      "Limited online presence to showcase completed work",
+      "Relying on word-of-mouth for new client inquiries",
+      "No easy way to keep a portfolio updated as new projects finish",
     ],
     howWeHelp:
-      "We build mobile-first tools designed for the field, with offline support and real-time syncing back to management dashboards.",
+      "We build modern, dynamic portfolio websites with content management built in, so businesses can showcase their work and capture client inquiries without relying on informal channels.",
     solutions: [
-      "Mobile site tracking and progress logging",
-      "Resource and equipment allocation dashboards",
-      "Automated reporting for stakeholders",
+      "Business portfolio and showcase websites",
+      "Content management for independent updates",
+      "Client inquiry and contact capture",
     ],
-    relatedProjectSlugs: ["buildflow"],
+    relatedProjectSlugs: ["ab-associates"],
+  },
+  {
+    slug: "agriculture",
+    title: "Agriculture",
+    icon: Wheat,
+    intro:
+      "We build software that brings localized data and automation to agricultural advisory and planning.",
+    challenges: [
+      "Advisory and weather information often published in dense, technical formats",
+      "Limited access to localized-language agricultural guidance",
+      "Disconnected access to planning tools and nearby resources",
+    ],
+    howWeHelp:
+      "We build practical, localized tools that turn dense agricultural data into clear, actionable guidance for farmers.",
+    solutions: [
+      "Localized-language advisory platforms",
+      "Automated weather and bulletin summarization",
+      "Crop planning and nearby resource discovery tools",
+    ],
+    relatedProjectSlugs: ["krishi-mitra"],
+  },
+  {
+    slug: "education",
+    title: "Education",
+    icon: GraduationCap,
+    intro:
+      "We build learning platforms that make complex topics easier to explore, understand, and retain.",
+    challenges: [
+      "Study material that's dense, text-heavy, and hard to engage with",
+      "Limited tools for exploring how topics connect to one another",
+      "Difficulty making complex subjects accessible to younger learners",
+    ],
+    howWeHelp:
+      "We design learning experiences around visual storytelling and connected, explorable topics, rather than static text.",
+    solutions: [
+      "Visual, story-driven learning platforms",
+      "Node-based, explorable topic structures",
+      "Accessible content for younger learners",
+    ],
+    relatedProjectSlugs: ["gyan-porichoy"],
+  },
+  {
+    slug: "manufacturing",
+    title: "Manufacturing",
+    icon: Factory,
+    intro:
+      "We're building capability in manufacturing technology — real-time monitoring, IoT integration, and operational visibility tools.",
+    challenges: [
+      "Limited visibility into line performance and downtime causes",
+      "Legacy systems that don't integrate with modern IoT sensors",
+      "Reactive rather than predictive maintenance",
+    ],
+    howWeHelp:
+      "We'd approach this by connecting existing equipment and sensors into live analytics platforms, surfacing issues before they cause costly downtime — talk to us about your specific setup.",
+    solutions: [
+      "Real-time production monitoring dashboards",
+      "IoT sensor integration and data pipelines",
+      "Operational reporting tools",
+    ],
+    relatedProjectSlugs: [],
   },
   {
     slug: "retail",
     title: "Retail",
     icon: ShoppingCart,
     intro:
-      "We help retail businesses unify their online and in-store operations into systems that scale with demand.",
+      "We're open to building unified commerce systems that bring online and in-store operations together.",
     challenges: [
       "Disconnected inventory across online and physical stores",
       "Scaling e-commerce platforms during demand spikes",
       "Fragmented customer data across channels",
     ],
     howWeHelp:
-      "We build unified commerce platforms that keep inventory, orders, and customer data in sync across every channel.",
+      "We'd approach this by building unified platforms that keep inventory, orders, and customer data in sync — let's discuss what your operations actually need.",
     solutions: [
       "E-commerce platform development",
       "Inventory and order management systems",
@@ -102,58 +162,18 @@ export const INDUSTRIES: Industry[] = [
     relatedProjectSlugs: [],
   },
   {
-    slug: "agriculture",
-    title: "Agriculture",
-    icon: Wheat,
-    intro:
-      "We build software that brings modern data and automation to agricultural operations, from farm management to supply chain tracking.",
-    challenges: [
-      "Limited digital visibility into field and crop conditions",
-      "Manual supply chain and inventory tracking",
-      "Disconnected data across farming operations",
-    ],
-    howWeHelp:
-      "We build practical, field-ready tools that digitize operations without adding unnecessary complexity for on-the-ground teams.",
-    solutions: [
-      "Farm management and monitoring platforms",
-      "Supply chain and inventory tracking",
-      "Data-driven yield and resource planning tools",
-    ],
-    relatedProjectSlugs: [],
-  },
-  {
-    slug: "education",
-    title: "Education",
-    icon: GraduationCap,
-    intro:
-      "We build platforms for educational institutions that need to manage students, content, and operations efficiently.",
-    challenges: [
-      "Fragmented systems for admissions, records, and learning",
-      "Difficulty scaling remote and hybrid learning tools",
-      "Manual administrative processes across departments",
-    ],
-    howWeHelp:
-      "We consolidate fragmented systems into unified platforms tailored to how institutions actually operate.",
-    solutions: [
-      "Student information and records systems",
-      "Learning management platforms",
-      "Admissions and enrollment automation",
-    ],
-    relatedProjectSlugs: [],
-  },
-  {
     slug: "finance",
     title: "Finance",
     icon: Landmark,
     intro:
-      "We build secure, compliant software for financial organizations where reliability and data integrity are non-negotiable.",
+      "We're open to building secure, compliant software for financial organizations where reliability is non-negotiable.",
     challenges: [
       "Strict regulatory and security compliance requirements",
       "Legacy core systems that are costly to change",
       "Growing expectations for real-time digital experiences",
     ],
     howWeHelp:
-      "We build with security and compliance as first-class requirements, not afterthoughts, while modernizing systems incrementally.",
+      "We'd approach this with security and compliance as first-class requirements from day one — reach out to discuss your specific regulatory context.",
     solutions: [
       "Secure financial platforms and dashboards",
       "Legacy core system modernization",

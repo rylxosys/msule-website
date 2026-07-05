@@ -132,13 +132,18 @@ export default async function ProjectPage({ params }: { params: Params }) {
           <h2 className="font-display text-2xl font-semibold text-white">
             Results
           </h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {project.results.map((r) => (
-              <div key={r.label}>
-                <p className="font-display text-4xl font-bold text-accent">
+              <div
+                key={r.label}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              >
+                <span className="font-mono text-xs uppercase tracking-wide text-accent">
+                  {r.label}
+                </span>
+                <p className="mt-3 font-display text-lg font-semibold leading-snug text-white">
                   {r.value}
                 </p>
-                <p className="mt-2 text-sm text-white/60">{r.label}</p>
               </div>
             ))}
           </div>
