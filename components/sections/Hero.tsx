@@ -70,14 +70,14 @@ export function Hero() {
         <video
           ref={videoRef}
           className="absolute inset-0 hidden size-full object-cover md:block"
-          poster="/hero-poster.jpg"
+          poster="/assets/hero-poster.jpg"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
         >
-          <source src="/hero-bg.mp4" type="video/mp4" />
+          <source src="/assets/hero-bg.mp4" type="video/mp4" />
         </video>
       )}
 
@@ -85,7 +85,7 @@ export function Hero() {
         className={`absolute inset-0 size-full bg-cover bg-center ${
           reducedMotion ? "block" : "md:hidden"
         }`}
-        style={{ backgroundImage: "url(/hero-poster.jpg)" }}
+        style={{ backgroundImage: "url(/assets/hero-poster.jpg)" }}
       />
 
       <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/80 to-ink/50" />
