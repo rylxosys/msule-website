@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Reveal } from "../common/Reveal";
 import { TESTIMONIALS } from "@/content/testimonials";
+import Image from "next/image";
 
 function getCardPosition(index: number, active: number, total: number) {
   const diff = (index - active + total) % total;
@@ -73,10 +74,20 @@ export function Testimonials() {
 
                   <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
                     <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-accent-soft font-display text-sm font-semibold text-accent">
-                      {t.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
+                      {t.photo ? (
+                        <Image
+                          src={t.photo}
+                          alt={t.name}
+                          width={48}
+                          height={48}
+                          className="size-11 rounded-full"
+                        />
+                      ) : (
+                        t.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")
+                      )}
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-ink">{t.name}</p>

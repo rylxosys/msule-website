@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Reveal, RevealStagger } from "@/components/common/Reveal";
 import { ScrollHint } from "@/components/common/ScrollHint";
+import Image from "next/image";
 
 const VALUES = [
   {
@@ -29,9 +30,21 @@ const VALUES = [
 ];
 
 const LEADERSHIP = [
-  { name: "Founder Name", role: "Founder & CEO" },
-  { name: "Co-founder Name", role: "Head of Engineering" },
-  { name: "Team Lead Name", role: "Head of Design" },
+  {
+    name: "Sudipta Ghosh",
+    role: "Founder & CEO",
+    photo: "/assets/sudipta-ghosh-founder.jpeg",
+  },
+  {
+    name: "Buddhadeb Das",
+    role: "Head of Engineering",
+    photo: "/assets/buddhadeb-das.jpeg",
+  },
+  {
+    name: "Leena Mukherjee",
+    role: "Head of Design",
+    photo: "/assets/leena-mukherjee-lead.png",
+  },
 ];
 
 export const metadata = { title: "About — Msule" };
@@ -169,10 +182,22 @@ export default function AboutPage() {
                 className="rounded-2xl border border-border p-6 text-center"
               >
                 <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-accent-soft font-display text-lg font-semibold text-accent">
-                  {person.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
+                  <div className="flex size-16 shrink-0 items-center justify-center rounded-full bg-accent-soft font-display text-sm font-semibold text-accent">
+                    {person.photo ? (
+                      <Image
+                        src={person.photo}
+                        alt={person.name}
+                        width={48}
+                        height={48}
+                        className="size-16 rounded-full"
+                      />
+                    ) : (
+                      person.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")
+                    )}
+                  </div>
                 </div>
                 <p className="mt-4 text-sm font-semibold text-ink">
                   {person.name}

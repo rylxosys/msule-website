@@ -11,6 +11,7 @@ export type Project = {
   tech: string[];
   timeline: string;
   results: { label: string; value: string }[];
+  image: string;
 };
 
 export const STATUS_STYLES: Record<Project["status"], string> = {
@@ -26,7 +27,8 @@ export const PROJECTS: Project[] = [
     title: "SWIS Foundation — Fundraising Platform",
     status: "In Development",
     industry: "Non-Profit",
-    url: "https://swisfoundation.example.com", // ← replace with real live URL
+    url: "https://integrated-action-network.vercel.app",
+    image: "/assets/swis-platform.png",
     overview:
       "A fundraising platform built for SWIS Foundation, giving the organization the tools to create and manage fundraising campaigns and accept donations directly online.",
     problem:
@@ -52,7 +54,8 @@ export const PROJECTS: Project[] = [
     title: "Rylxo CMS — Clinic Management System",
     status: "Maintenance",
     industry: "Healthcare",
-    url: "https://rylxo.com", // ← replace with real live URL
+    url: "https://rylxo.in",
+    image: "/assets/rylxo-platform.png",
     overview:
       "A complete clinic management platform for Rylxo Pvt Ltd, giving clinics a public-facing booking presence alongside a full internal system for managing doctors, schedules, patient queues, and communication.",
     problem:
@@ -89,7 +92,8 @@ export const PROJECTS: Project[] = [
     title: "AB Associates — Business Portfolio Website",
     status: "Completed",
     industry: "Construction",
-    url: "https://abassociates.example.com", // ← replace with real live URL
+    url: "https://abassociates.example.com",
+    image: "/assets/ab-associates-platform.png",
     overview:
       "A modern portfolio website for AB Associates, a contracting business, built to showcase completed work and generate client inquiries.",
     problem:
@@ -121,7 +125,8 @@ export const PROJECTS: Project[] = [
     title: "Agro-Sathi — Localized Agriculture Advisory Platform",
     status: "Live",
     industry: "Agriculture",
-    url: "https://agrosathi.example.com", // ← replace with real live URL
+    url: "https://agro-sathi.in",
+    image: "/assets/agro-sathi-platform.png",
     overview:
       "A multilingual agriculture advisory platform giving farmers localized weather forecasts, crop guidance, and nearby resource information.",
     problem:
@@ -152,7 +157,8 @@ export const PROJECTS: Project[] = [
     title: "Gyan Porichoy — Visual Learning Platform for Students",
     status: "Maintenance",
     industry: "Education",
-    url: "https://gyanporichoy.example.com", // ← replace with real live URL
+    url: "https://gyanporichoy.example.com",
+    image: "/assets/gyan-porichoy-platform.png",
     overview:
       "A free, community-contributed learning platform for students, using comic-style visuals and character-driven storytelling to make complex topics easier to explore.",
     problem:

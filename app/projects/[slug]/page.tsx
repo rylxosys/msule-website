@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PROJECTS, getProjectBySlug } from "@/content/projects";
+import Image from "next/image";
 
 type Params = Promise<{ slug: string }>;
 
@@ -52,9 +53,13 @@ export default async function ProjectPage({ params }: { params: Params }) {
       {/* Gallery placeholder */}
       <section className="mx-auto max-w-[1100px] px-6 py-14">
         <div className="aspect-[16/9] w-full rounded-2xl bg-gradient-to-br from-accent-soft to-accent/10 flex items-center justify-center">
-          <span className="font-mono text-xs text-muted-soft">
-            {project.title} — Product Screenshots
-          </span>
+          <Image
+            src={project.image}
+            width={1100}
+            height={600}
+            alt={project.title}
+            className="size-full"
+          />
         </div>
       </section>
 
