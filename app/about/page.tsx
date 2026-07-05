@@ -2,6 +2,8 @@
 import { Target, Eye, Heart, Users, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Reveal, RevealStagger } from "@/components/common/Reveal";
+import { ScrollHint } from "@/components/common/ScrollHint";
 
 const VALUES = [
   {
@@ -39,7 +41,10 @@ export default function AboutPage() {
     <main className="bg-bg">
       {/* Hero */}
       <section className="border-b border-border bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-[900px] px-6 text-center">
+        <Reveal
+          variant="fadeUp"
+          className="mx-auto max-w-[900px] px-6 text-center"
+        >
           <p className="font-mono text-xs uppercase tracking-widest text-accent">
             About Msule
           </p>
@@ -47,37 +52,41 @@ export default function AboutPage() {
             We&apos;re not another dev shop
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg text-muted">
-            Msule was built to be the technology partner businesses wish they'd
-            found sooner — one that thinks about outcomes, not just output.
+            {`Msule was built to be the technology partner businesses wish they'd
+            found sooner — one that thinks about outcomes, not just output.`}
           </p>
-        </div>
+          <ScrollHint />
+        </Reveal>
       </section>
 
       {/* Company story */}
       <section className="py-20">
-        <div className="mx-auto max-w-[800px] px-6">
+        <Reveal variant="fadeUp" className="mx-auto max-w-[800px] px-6">
           <h2 className="font-display text-2xl font-semibold text-ink">
             Our Story
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-muted">
-            Msule started from a simple frustration: too many businesses were
+            {`Msule started from a simple frustration: too many businesses were
             getting software built by teams that disappeared after launch,
             leaving them stuck with systems they didn't fully own or understand.
             We set out to do it differently — staying involved, being
             transparent about tradeoffs, and building things meant to last
-            years, not just ship on time.
+            years, not just ship on time.`}
           </p>
           <p className="mt-4 text-sm leading-relaxed text-muted">
             Today, we work with businesses across healthcare, manufacturing,
             construction, and beyond — helping them build software that actually
             fits how they operate.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* Mission / Vision */}
       <section className="border-t border-border bg-white py-20">
-        <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-10 px-6 md:grid-cols-2">
+        <RevealStagger
+          className="mx-auto grid max-w-[900px] grid-cols-1 gap-10 px-6 md:grid-cols-2"
+          staggerDelay={0.15}
+        >
           <div>
             <div className="flex size-11 items-center justify-center rounded-xl bg-accent-soft">
               <Target className="size-5 text-accent" />
@@ -98,23 +107,29 @@ export default function AboutPage() {
               Vision
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
-              A world where businesses of any size have access to the same
-              quality of product engineering as the world's best tech companies.
+              {`A world where businesses of any size have access to the same
+              quality of product engineering as the world's best tech companies.`}
             </p>
           </div>
-        </div>
+        </RevealStagger>
       </section>
 
       {/* Core values */}
       <section className="py-20">
         <div className="mx-auto max-w-[1000px] px-6">
-          <div className="flex items-center gap-3">
-            <Heart className="size-5 text-accent" />
-            <h2 className="font-display text-2xl font-semibold text-ink">
-              Core Values
-            </h2>
-          </div>
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <Reveal variant="fadeUp">
+            <div className="flex items-center gap-3">
+              <Heart className="size-5 text-accent" />
+              <h2 className="font-display text-2xl font-semibold text-ink">
+                Core Values
+              </h2>
+            </div>
+          </Reveal>
+
+          <RevealStagger
+            className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2"
+            staggerDelay={0.1}
+          >
             {VALUES.map((v) => (
               <div
                 key={v.title}
@@ -128,20 +143,26 @@ export default function AboutPage() {
                 </p>
               </div>
             ))}
-          </div>
+          </RevealStagger>
         </div>
       </section>
 
       {/* Leadership */}
       <section className="border-t border-border bg-white py-20">
         <div className="mx-auto max-w-[1000px] px-6">
-          <div className="flex items-center gap-3">
-            <Users className="size-5 text-accent" />
-            <h2 className="font-display text-2xl font-semibold text-ink">
-              Leadership
-            </h2>
-          </div>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <Reveal variant="fadeUp">
+            <div className="flex items-center gap-3">
+              <Users className="size-5 text-accent" />
+              <h2 className="font-display text-2xl font-semibold text-ink">
+                Leadership
+              </h2>
+            </div>
+          </Reveal>
+
+          <RevealStagger
+            className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3"
+            staggerDelay={0.12}
+          >
             {LEADERSHIP.map((person) => (
               <div
                 key={person.name}
@@ -159,13 +180,13 @@ export default function AboutPage() {
                 <p className="text-xs text-muted">{person.role}</p>
               </div>
             ))}
-          </div>
+          </RevealStagger>
         </div>
       </section>
 
       {/* CTA */}
       <section className="bg-ink py-20 text-center">
-        <div className="mx-auto max-w-[600px] px-6">
+        <Reveal variant="zoomIn" className="mx-auto max-w-[600px] px-6">
           <h2 className="font-display text-3xl font-bold text-white">
             Want to work with us?
           </h2>
@@ -179,7 +200,7 @@ export default function AboutPage() {
               <ArrowRight className="size-4" />
             </Link>
           </Button>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

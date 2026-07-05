@@ -3,19 +3,21 @@
 @import "shadcn/tailwind.css";
 
 @theme {
-    --color-ink: #0f172a;
-    --color-bg: #ffffff;
-    --color-muted: #475569;
-    --color-muted-soft: #94a3b8;
-    --color-border: #e2e8f0;
-    --color-accent: #2f5eff;
-    --color-accent-soft: #eef2ff;
+    --color-bg: #fdfcfa;
+    --color-ink: #1b1e26; /* cult.fit's near-black, replaces the old navy */
+    --color-muted: #52586a;
+    --color-muted-soft: #9298a8;
+    --color-border: #e7e4de;
+
+    --color-accent: #d35a4e; /* coral-red, sampled from FitPass */
+    --color-accent-soft: #fbeae7;
     --color-accent-fg: #ffffff;
 
-    /* Only override what needs to point at a non-default font */
-    --font-display: var(--font-geist-sans), sans-serif;
-    --font-mono: var(--font-geist-mono), monospace;
-    /* font-sans stays untouched — inter.variable already owns --font-sans */
+    --color-accent2: #0f9b8e; /* teal — secondary accent for section variety */
+    --color-accent2-soft: #e4f7f4;
+
+    --color-warm: #d35a4e; /* same as accent now — removing the separate orange, coral IS the warm tone */
+    --color-warm-soft: #fbeae7;
 }
 
 body {

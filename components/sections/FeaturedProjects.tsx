@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, RevealStagger } from "../common/Reveal";
+import { AbstractTile } from "../common/AbstractTile";
+import { pattern } from "framer-motion/client";
 
 const PROJECTS = [
   {
@@ -14,6 +16,7 @@ const PROJECTS = [
     impact: "40% faster patient intake",
     image: "/assets/projects/healthtrack.jpg",
     href: "/projects/healthtrack",
+    pattern: "nodes" as const,
   },
   {
     title: "BuildFlow — Construction Site Management",
@@ -24,6 +27,7 @@ const PROJECTS = [
     impact: "3x faster reporting cycles",
     image: "/assets/projects/buildflow.jpg",
     href: "/projects/buildflow",
+    pattern: "blocks" as const,
   },
   {
     title: "FactoryLens — Manufacturing Analytics",
@@ -34,6 +38,7 @@ const PROJECTS = [
     impact: "18% reduction in downtime",
     image: "/assets/projects/factorylens.jpg",
     href: "/projects/factorylens",
+    pattern: "waves" as const,
   },
 ];
 
@@ -80,13 +85,10 @@ export function FeaturedProjects() {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>*/}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-accent-soft to-accent/10">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-mono text-xs text-muted-soft">
-                    {project.industry} Project
-                  </span>
-                </div>
-              </div>
+              <AbstractTile
+                pattern={project.pattern}
+                className="aspect-[4/3] w-full transition-transform duration-300 group-hover:scale-105"
+              />
 
               <div className="flex flex-1 flex-col p-6">
                 <span className="font-mono text-xs uppercase tracking-wide text-accent">
