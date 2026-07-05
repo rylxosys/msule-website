@@ -1,42 +1,53 @@
 // components/layout/footer.tsx
 import Link from "next/link";
-import {
-  LinkedinIcon,
-  TwitterIcon,
-  GithubIcon,
-} from "@/components/common/SocialIcons";
+// import {
+//   LinkedinIcon,
+//   TwitterIcon,
+//   GithubIcon,
+// } from "@/components/common/SocialIcons";
 import { Mail } from "lucide-react";
 import { MsuleLogo } from "../common/MsuleLogo";
 
 const FOOTER_LINKS = {
   Company: [
+    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
+    { label: "Process", href: "/process" },
     { label: "Contact", href: "/contact" },
   ],
   Services: [
     { label: "Product Engineering", href: "/services/product-engineering" },
+    { label: "Custom Software", href: "/services/custom-software" },
+    { label: "SaaS Development", href: "/services/saas-development" },
     { label: "Web Development", href: "/services/web-development" },
     { label: "Mobile Development", href: "/services/mobile-development" },
-    { label: "AI Integration", href: "/services/ai-integration" },
     { label: "Cloud Engineering", href: "/services/cloud-engineering" },
+    { label: "API Development", href: "/services/api-development" },
+    { label: "Support & Maintenance", href: "/services/support-maintenance" },
   ],
   Industries: [
     { label: "Healthcare", href: "/industries/healthcare" },
-    { label: "Manufacturing", href: "/industries/manufacturing" },
+    { label: "Non-Profit", href: "/industries/non-profit" },
     { label: "Construction", href: "/industries/construction" },
+    { label: "Agriculture", href: "/industries/agriculture" },
+    { label: "Education", href: "/industries/education" },
+    { label: "Manufacturing", href: "/industries/manufacturing" },
+    { label: "Retail", href: "/industries/retail" },
     { label: "Finance", href: "/industries/finance" },
   ],
   Work: [
     { label: "Projects", href: "/projects" },
-    { label: "Process", href: "/process" },
+    { label: "SWIS Foundation", href: "/projects/swis-foundation" },
+    { label: "Rylxo CMS", href: "/projects/rylxo-cms" },
+    { label: "AB Associates", href: "/projects/ab-associates" },
   ],
 };
 
-const SOCIALS = [
-  { icon: LinkedinIcon, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: TwitterIcon, href: "https://twitter.com", label: "Twitter" },
-  { icon: GithubIcon, href: "https://github.com", label: "GitHub" },
-];
+// const SOCIALS = [
+//   { icon: LinkedinIcon, href: "https://linkedin.com", label: "LinkedIn" },
+//   { icon: TwitterIcon, href: "https://twitter.com", label: "Twitter" },
+//   { icon: GithubIcon, href: "https://github.com", label: "GitHub" },
+// ];
 
 export function Footer() {
   return (
@@ -55,17 +66,28 @@ export function Footer() {
               Your long-term technology partner — engineering software that
               moves business.
             </p>
-            <a
-              href="mailto:hello@msule.com"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-accent"
-            >
-              <Mail className="size-4" />
-              hello@msule.com
-            </a>
 
+            <div className="mt-5 flex flex-col gap-2">
+              <a
+                href="mailto:contact@msule.com"
+                className="inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-accent"
+              >
+                <Mail className="size-4" />
+                contact@msule.com
+              </a>
+              <a
+                href="mailto:support@msule.com"
+                className="inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-accent"
+              >
+                <Mail className="size-4" />
+                support@msule.com
+              </a>
+            </div>
+
+            {/* Socials — commented out for now, keep for later
             <div className="mt-6 flex items-center gap-3">
               {SOCIALS.map(({ icon: Icon, href, label }) => (
-                <a
+
                   key={label}
                   href={href}
                   target="_blank"
@@ -77,6 +99,7 @@ export function Footer() {
                 </a>
               ))}
             </div>
+            */}
           </div>
 
           {/* Link columns */}

@@ -1,25 +1,7 @@
 // components/sections/industries.tsx
 import Link from "next/link";
-import {
-  HeartPulse,
-  Factory,
-  HardHat,
-  ShoppingCart,
-  Wheat,
-  GraduationCap,
-  Landmark,
-} from "lucide-react";
 import { Reveal, RevealStagger } from "../common/Reveal";
-
-const INDUSTRIES = [
-  { icon: HeartPulse, title: "Healthcare", href: "/industries/healthcare" },
-  { icon: Factory, title: "Manufacturing", href: "/industries/manufacturing" },
-  { icon: HardHat, title: "Construction", href: "/industries/construction" },
-  { icon: ShoppingCart, title: "Retail", href: "/industries/retail" },
-  { icon: Wheat, title: "Agriculture", href: "/industries/agriculture" },
-  { icon: GraduationCap, title: "Education", href: "/industries/education" },
-  { icon: Landmark, title: "Finance", href: "/industries/finance" },
-];
+import { INDUSTRIES } from "@/content/industries";
 
 export function Industries() {
   return (
@@ -41,10 +23,10 @@ export function Industries() {
         </Reveal>
 
         <RevealStagger className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {INDUSTRIES.map(({ icon: Icon, title, href }) => (
+          {INDUSTRIES.map(({ slug, title, icon: Icon }) => (
             <Link
-              key={title}
-              href={href}
+              key={slug}
+              href={`/industries/${slug}`}
               className="group flex flex-col items-start gap-4 rounded-2xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg"
             >
               <div className="flex size-11 items-center justify-center rounded-xl bg-accent-soft">

@@ -26,12 +26,6 @@ const FAQS = [
       "You do — fully. Once the engagement is complete (or as agreed in your contract), all code, designs, and intellectual property belong to you.",
   },
   {
-    question:
-      "Do you only build new products, or can you improve an existing one?",
-    answer:
-      "Both. We regularly take over existing codebases — modernizing legacy systems, fixing technical debt, or extending products that are already live.",
-  },
-  {
     question: "What happens after launch?",
     answer:
       "We don't disappear. Ongoing support, monitoring, and iteration are part of how we work — many of our clients stay with us long-term as their product evolves.",
