@@ -3,10 +3,8 @@ import {
   Layers,
   Globe,
   Smartphone,
-  Building2,
   Sparkles,
   Cloud,
-  Lightbulb,
   LifeBuoy,
   Blocks,
   RefreshCw,
@@ -109,25 +107,6 @@ export const SERVICES: Service[] = [
     technologies: ["React Native", "Swift", "Kotlin", "Firebase"],
   },
   {
-    slug: "ai-integration",
-    title: "AI Integration",
-    icon: Sparkles,
-    overview:
-      "Practical AI features integrated into real products — not AI for its own sake, but where it measurably improves outcomes.",
-    benefits: [
-      "AI applied only where it drives real business value",
-      "Built with data privacy and cost control in mind",
-      "Ongoing model evaluation as the space evolves",
-    ],
-    process: [
-      "Use-case evaluation",
-      "Prototype",
-      "Integration",
-      "Monitoring & tuning",
-    ],
-    technologies: ["OpenAI", "Anthropic", "LangChain", "Vector DBs"],
-  },
-  {
     slug: "cloud-engineering",
     title: "Cloud Engineering",
     icon: Cloud,
@@ -164,25 +143,6 @@ export const SERVICES: Service[] = [
       "Testing & versioning",
     ],
     technologies: ["GraphQL", "REST", "Node.js", "PostgreSQL"],
-  },
-  {
-    slug: "legacy-modernization",
-    title: "Legacy Modernization",
-    icon: RefreshCw,
-    overview:
-      "We modernize aging systems incrementally — reducing risk while improving performance, security, and maintainability.",
-    benefits: [
-      "Incremental migration — no risky big-bang rewrites",
-      "Improved performance and reduced technical debt",
-      "Easier to hire for and maintain going forward",
-    ],
-    process: [
-      "System audit",
-      "Migration roadmap",
-      "Phased rebuild",
-      "Cutover & validation",
-    ],
-    technologies: ["TypeScript", "PostgreSQL", "Docker", "AWS"],
   },
   {
     slug: "support-maintenance",

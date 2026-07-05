@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, ArrowRight } from "lucide-react";
+import { Menu, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -35,9 +35,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // "/" should only be active on the exact homepage.
-  // Other links should be active on their page AND any nested route
-  // (e.g. "/services" stays active while on "/services/product-engineering").
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
@@ -103,35 +100,67 @@ export function Navbar() {
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] bg-white">
-            <div className="mt-10 flex flex-col gap-1">
-              {NAV_LINKS.map((link) => {
-                const active = isActive(link.href);
-                return (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "rounded-lg px-3 py-3 text-base font-medium hover:bg-accent-soft",
-                        active ? "bg-accent-soft text-accent" : "text-ink",
-                      )}
-                    >
-                      {link.label}
+
+          <SheetContent
+            side="right"
+            className="w-[85vw] max-w-[360px] border-l border-white/20 bg-white/40 p-0 shadow-2xl backdrop-blur-2xl [&>button]:hidden"
+          >
+            <div className="flex h-full flex-col">
+              {/* Header row: logo + close button, generously spaced */}
+              <div className="flex items-center justify-between px-7 pt-7">
+                <span className="font-display text-lg font-bold tracking-tight text-ink">
+                  <MsuleLogo />
+                </span>
+                <SheetClose asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full text-muted hover:bg-white/60 hover:text-ink"
+                  >
+                    <X className="size-5" />
+                    <span className="sr-only">Close menu</span>
+                  </Button>
+                </SheetClose>
+              </div>
+
+              {/* Nav links — generous vertical rhythm, larger tap targets */}
+              <nav className="mt-10 flex flex-col gap-1 px-4">
+                {NAV_LINKS.map((link) => {
+                  const active = isActive(link.href);
+                  return (
+                    <SheetClose asChild key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "rounded-2xl px-4 py-4 text-lg font-medium transition-colors",
+                          active
+                            ? "bg-white/55 text-accent"
+                            : "text-ink hover:bg-white/30",
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  );
+                })}
+              </nav>
+
+              {/* CTA pinned near the bottom, with breathing room above it */}
+              <div className="mt-auto px-7 pb-10 pt-6">
+                <div className="mb-6 h-px w-full bg-white/40" />
+                <SheetClose asChild>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full gap-1.5 rounded-full bg-accent text-accent-fg shadow-lg shadow-accent/25 hover:bg-accent/90"
+                  >
+                    <Link href="/contact">
+                      Let&apos;s Talk
+                      <ArrowRight className="size-4" />
                     </Link>
-                  </SheetClose>
-                );
-              })}
-              <SheetClose asChild>
-                <Button
-                  asChild
-                  className="mt-4 gap-1.5 rounded-full bg-accent text-accent-fg hover:bg-accent/90"
-                >
-                  <Link href="/contact">
-                    Let&apos;s Talk
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </Button>
-              </SheetClose>
+                  </Button>
+                </SheetClose>
+              </div>
             </div>
           </SheetContent>
         </Sheet>

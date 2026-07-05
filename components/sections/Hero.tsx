@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Cloud, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, Code2, Cloud, ShieldCheck, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/common/Reveal";
 
@@ -15,8 +15,8 @@ const FLOATING_CARDS = [
     floatDelay: 0,
   },
   {
-    icon: Sparkles,
-    label: "AI Solutions",
+    icon: Building2,
+    label: "Enterprise Software",
     position: "md:top-1/4 md:-right-6 lg:-right-12",
     floatDelay: 0.5,
   },
