@@ -238,10 +238,10 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm font-semibold text-ink">Email</p>
                   <a
-                    href="mailto:hello@msule.com"
+                    href="mailto:contact@msule.com"
                     className="text-sm text-muted hover:text-accent"
                   >
-                    hello@msule.com
+                    contact@msule.com
                   </a>
                 </div>
               </div>
@@ -254,7 +254,7 @@ export default function ContactPage() {
                     href="tel:+10000000000"
                     className="text-sm text-muted hover:text-accent"
                   >
-                    +1 (000) 000-0000
+                    +91-9800301379
                   </a>
                 </div>
               </div>
@@ -264,9 +264,9 @@ export default function ContactPage() {
                 <div>
                   <p className="text-sm font-semibold text-ink">Office</p>
                   <p className="text-sm text-muted">
-                    123 Business Ave, Suite 100
+                    E3, Yogada Housing Complex
                     <br />
-                    City, State 00000
+                    Purba Bardhaman, West Bengal 713101
                   </p>
                 </div>
               </div>
@@ -274,9 +274,9 @@ export default function ContactPage() {
 
             <div className="mt-6 overflow-hidden rounded-2xl border border-border">
               <iframe
-                title="Msule office location"
-                src="https://www.google.com/maps?q=New+York,NY&output=embed"
-                className="h-64 w-full"
+                title="Office location"
+                src="https://www.google.com/maps?q=23.25353485320417,87.86110892506984&z=16&output=embed"
+                className="h-64 w-full rounded-2xl border border-white/8"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

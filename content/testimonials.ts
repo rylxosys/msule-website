@@ -9,7 +9,7 @@ export type Testimonial = {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Souvik Kundu",
+    name: "Soubhik Kundu",
     designation: "Founder & CEO",
     company: "SWIS Foundation",
     photo: "/assets/souvik-kundu.png",
