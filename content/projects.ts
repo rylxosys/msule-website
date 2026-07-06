@@ -12,6 +12,7 @@ export type Project = {
   timeline: string;
   results: { label: string; value: string }[];
   image: string;
+  logo?: string;
 };
 
 export const STATUS_STYLES: Record<Project["status"], string> = {
@@ -25,10 +26,11 @@ export const PROJECTS: Project[] = [
   {
     slug: "swis-foundation",
     title: "SWIS Foundation — Fundraising Platform",
-    status: "In Development",
+    status: "Completed",
     industry: "Non-Profit",
     url: "https://integrated-action-network.vercel.app",
     image: "/assets/swis-platform.png",
+    logo: "/assets/swis-foundation-logo.png",
     overview:
       "A fundraising platform built for SWIS Foundation, giving the organization the tools to create and manage fundraising campaigns and accept donations directly online.",
     problem:
@@ -56,6 +58,7 @@ export const PROJECTS: Project[] = [
     industry: "Healthcare",
     url: "https://rylxo.in",
     image: "/assets/rylxo-platform.png",
+    logo: "/assets/rylxo-wordmark-logo.png",
     overview:
       "A complete clinic management platform for Rylxo Pvt Ltd, giving clinics a public-facing booking presence alongside a full internal system for managing doctors, schedules, patient queues, and communication.",
     problem:
@@ -92,8 +95,9 @@ export const PROJECTS: Project[] = [
     title: "AB Associates — Business Portfolio Website",
     status: "Completed",
     industry: "Construction",
-    url: "https://abassociates.example.com",
+    url: "https://ab-associates-profile.vercel.app",
     image: "/assets/ab-associates-platform.png",
+    logo: "/assets/ab-associates-platform-logo.png",
     overview:
       "A modern portfolio website for AB Associates, a contracting business, built to showcase completed work and generate client inquiries.",
     problem:
@@ -127,6 +131,7 @@ export const PROJECTS: Project[] = [
     industry: "Agriculture",
     url: "https://agro-sathi.in",
     image: "/assets/agro-sathi-platform.png",
+    logo: "/assets/agro-sathi-logo.png",
     overview:
       "A multilingual agriculture advisory platform giving farmers localized weather forecasts, crop guidance, and nearby resource information.",
     problem:
@@ -157,8 +162,9 @@ export const PROJECTS: Project[] = [
     title: "Gyan Porichoy — Visual Learning Platform for Students",
     status: "Maintenance",
     industry: "Education",
-    url: "https://gyanporichoy.example.com",
+    url: "https://gyanporichoy.vercel.app",
     image: "/assets/gyan-porichoy-platform.png",
+    logo: "/assets/gyan-porichoy-logo.png",
     overview:
       "A free, community-contributed learning platform for students, using comic-style visuals and character-driven storytelling to make complex topics easier to explore.",
     problem:

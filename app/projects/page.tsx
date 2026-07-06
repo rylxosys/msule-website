@@ -4,20 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal, RevealStagger } from "@/components/common/Reveal";
 import { ScrollHint } from "@/components/common/ScrollHint";
-import { AbstractTile } from "@/components/common/AbstractTile";
+import { ProjectLogoTile } from "@/components/common/ProjectLogoTile";
 import { PROJECTS, type Project } from "@/content/projects";
 
 export const metadata = { title: "Projects — Msule" };
-
-// Maps each project slug to a distinct abstract pattern, so cards
-// don't all look identical.
-const PATTERN_MAP: Record<string, "nodes" | "blocks" | "waves"> = {
-  "rylxo-cms": "nodes",
-  "agro-sathi": "waves",
-  "swis-foundation": "blocks",
-  "ab-associates": "blocks",
-  "gyan-porichoy": "nodes",
-};
 
 const STATUS_STYLES: Record<Project["status"], string> = {
   Live: "bg-accent2-soft text-accent2",
@@ -57,10 +47,11 @@ export default function ProjectsIndexPage() {
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all hover:-translate-y-1 hover:shadow-xl"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all hover:-translate-y-1 hover:shadow-xl"
               >
-                <AbstractTile
-                  pattern={PATTERN_MAP[project.slug] ?? "nodes"}
+                <ProjectLogoTile
+                  logo={project.logo}
+                  name={project.title.split("—")[0].trim()}
                   className="aspect-[4/3] w-full transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="flex flex-1 flex-col p-6">

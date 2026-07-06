@@ -1,7 +1,7 @@
 // app/projects/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PROJECTS, getProjectBySlug } from "@/content/projects";
 import Image from "next/image";
@@ -25,19 +25,37 @@ export default async function ProjectPage({ params }: { params: Params }) {
   if (!project) notFound();
 
   const related = PROJECTS.filter((p) => p.slug !== project.slug).slice(0, 2);
+  const hasLiveSite = project.status !== "In Development";
 
   return (
     <main className="bg-bg">
       {/* Hero */}
       <section className="border-b border-border bg-white py-20">
         <div className="mx-auto max-w-[900px] px-6">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink"
-          >
-            <ArrowLeft className="size-4" />
-            All Projects
-          </Link>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink"
+            >
+              <ArrowLeft className="size-4" />
+              All Projects
+            </Link>
+
+            {hasLiveSite && (
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="gap-1.5 rounded-full border-border text-ink hover:bg-accent-soft"
+              >
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                  Visit Live Site
+                  <ExternalLink className="size-3.5" />
+                </a>
+              </Button>
+            )}
+          </div>
+
           <p className="mt-6 font-mono text-xs uppercase tracking-widest text-accent">
             {project.industry}
           </p>
@@ -50,15 +68,14 @@ export default async function ProjectPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      {/* Gallery placeholder */}
-      <section className="mx-auto max-w-[1100px] px-6 py-14">
-        <div className="aspect-[16/9] w-full rounded-2xl bg-gradient-to-br from-accent-soft to-accent/10 flex items-center justify-center">
+      {/* Gallery */}
+      <section className="mx-auto max-w-275 px-6 py-14">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-accent-soft to-accent/10">
           <Image
             src={project.image}
-            width={1100}
-            height={600}
             alt={project.title}
-            className="size-full"
+            fill
+            className="size-fit object-cover"
           />
         </div>
       </section>

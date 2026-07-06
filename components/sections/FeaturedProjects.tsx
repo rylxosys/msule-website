@@ -2,18 +2,12 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, RevealStagger } from "../common/Reveal";
-import { AbstractTile } from "../common/AbstractTile";
+import { ProjectLogoTile } from "../common/ProjectLogoTile";
 import { PROJECTS } from "@/content/projects";
 
 // Homepage only teases 3 projects — picking a spread across different
 // industries rather than showing all 5.
 const FEATURED_SLUGS = ["swis-foundation", "rylxo-cms", "ab-associates"];
-
-const PATTERN_MAP: Record<string, "nodes" | "blocks" | "waves"> = {
-  "rylxo-cms": "nodes",
-  "swis-foundation": "blocks",
-  "ab-associates": "waves",
-};
 
 export function FeaturedProjects() {
   const featured = FEATURED_SLUGS.map((slug) =>
@@ -54,8 +48,9 @@ export function FeaturedProjects() {
               href={`/projects/${project.slug}`}
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all hover:-translate-y-1 hover:shadow-xl"
             >
-              <AbstractTile
-                pattern={PATTERN_MAP[project.slug] ?? "nodes"}
+              <ProjectLogoTile
+                logo={project.logo}
+                name={project.title.split("—")[0].trim()}
                 className="aspect-[4/3] w-full transition-transform duration-300 group-hover:scale-105"
               />
 
